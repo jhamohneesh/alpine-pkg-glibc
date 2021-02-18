@@ -46,7 +46,7 @@ jobs:
               --env PACKAGER_PRIVKEY="home/builder/package/sgerrand.rsa.pub" \
               --volumes-from input \
               --volumes-from output \
-              sgerrand/alpine-abuild:3.11
+              mohneeshjha/alpine-abuild:amd64
       - run:
           name: Test package installation
           command: |
