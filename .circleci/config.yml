@@ -38,6 +38,7 @@ jobs:
           name: Grepping private key
           command: |
             docker cp keys:/home/builder/.abuild/  .
+            ls
             mv *.rsa ssh.rsa
       - run:
           name: Create Docker volumes
