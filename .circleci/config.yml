@@ -34,10 +34,6 @@ jobs:
           name: Create keygen
           command: | 
             docker run --name keys --entrypoint abuild-keygen sgerrand/alpine-abuild:3.11 -n
-      -run:
-         name: Getting the key 
-         command: |
-           docker cp keys:/home/builder/.abuild/*.rsa .
       - run:
           name: Create Docker volumes
           command: |
