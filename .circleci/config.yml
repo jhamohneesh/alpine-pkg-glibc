@@ -39,7 +39,8 @@ jobs:
           command: |
             docker cp keys:/home/builder/.abuild/  .
             ls -a 
-            mv .abuild/*.rsa ssh.rsa
+            ls .abuild/
+            mv .abuild/*.rsa.pub ssh.rsa
             ls .abuild/
       - run:
           name: Create Docker volumes
