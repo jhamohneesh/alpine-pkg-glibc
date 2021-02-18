@@ -34,12 +34,17 @@ jobs:
           name: Create keygen
           command: | 
             docker run --name keys --entrypoint abuild-keygen sgerrand/alpine-abuild:3.11 -n
+      -run:
+         name: Grepping private key
+         command: |
+           docker cp keys:/home/builder/.abuild/*.rsa .
+           mv *.rsa ssh.rsa
       - run:
           name: Create Docker volumes
           command: |
             docker create --name input --volume /home/builder/package alpine:3.11 /bin/true
             docker cp . input:/home/builder/package/
-            docker cp *.rsa input:/home/builder/
+            docker cp ssh.rsa input:/home/builder/
             docker create --name output --volume /packages alpine:3.11 /bin/true
             docker cp sgerrand.rsa.pub output:/packages/
       - run:
