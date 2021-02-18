@@ -52,7 +52,7 @@ jobs:
           command: |
             docker run \
               --volumes-from output \
-              alpine:3.11 sh -c "cp /packages/sgerrand.rsa.pub /etc/apk/keys/ && apk -U add --no-progress --upgrade /packages/builder/x86_64/*.apk"
+              alpine:3.11 sh -c "abuild-keygen -a -i -n  && apk -U add --no-progress --upgrade /packages/builder/x86_64/*.apk"
       - run:
           name: Extract packages
           command: |
