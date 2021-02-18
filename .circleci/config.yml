@@ -47,7 +47,7 @@ jobs:
           command: |
             docker create --name input --volume /home/builder/package alpine:3.11 /bin/true
             docker cp . input:/home/builder/package/
-            docker cp ./.abuild/ssh.rsa input:/home/builder/
+            docker cp ssh.rsa input:/home/builder/
             docker create --name output --volume /packages alpine:3.11 /bin/true
             docker cp sgerrand.rsa.pub output:/packages/
       - run:
