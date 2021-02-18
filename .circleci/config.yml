@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Create Docker volumes
           command: |
-            docker create --name input --volume /home/builder/package alpine:3.11 /bin/true
+            docker create --name input --volume /home/builder/package --volume  /home/builder/  alpine:3.11 /bin/true
             docker cp . input:/home/builder/package/
             docker cp ssh.rsa input:/home/builder/
             docker create --name output --volume /packages alpine:3.11 /bin/true
